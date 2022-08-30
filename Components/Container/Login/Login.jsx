@@ -3,9 +3,11 @@ import { View, Text, TextInput, TouchableOpacity, Platform } from "react-native"
 import Button from "../../UI/Button/Button";
 import P from "../../UI/P/P";
 import { AntDesign } from "@expo/vector-icons";
+import InputWithError from "../../UI/InputWithError/InputWithError";
 export default function Login() {
   //les variables d'états:
-  const [emailInput, setEmailInput] = useState("");
+  let email = "sam@sam.com";
+  const [emailInput, setEmailInput] = useState(email);
   const [emailError, setEmailError] = useState("");
 
   const [passwordInput, setPasswordInput] = useState("");
@@ -28,23 +30,27 @@ export default function Login() {
     } else {
       setEmailError(!emailInput.includes("@") ? "Email invalide!" : "");
       setPasswordError(passwordInput.length < 6 ? "Mot de passe trop court!" : "");
+      setPasswordInput("");
     }
   }
-
+  //Two way binding
   return (
     <View accessibilityRole={Platform.OS === "web" ? "form" : null}>
-      <TextInput
-        placeholder='Email'
-        keyboardType='email-address'
-        onChangeText={handleEmail}
+      <InputWithError
+        holder='Email'
+        valeur={emailInput}
+        action={handleEmail}
+        errorMessage={emailError}
+        type='email-address'
       />
-      <Text>{emailError}</Text>
-      <TextInput
-        placeholder='Mot de passe'
-        secureTextEntry
-        onChangeText={handlePassword}
+      <InputWithError
+        holder='Mot de passe'
+        valeur={passwordInput}
+        action={handlePassword}
+        errorMessage={passwordError}
+        type='default'
+        isPassword
       />
-      <Text>{passwordError}</Text>
 
       <Button action={login}>
         <AntDesign name='login' size={24} color='whitesmoke' />
