@@ -6,8 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import InputWithError from "../../UI/InputWithError/InputWithError";
 export default function Login() {
   //les variables d'états:
-  let email = "sam@sam.com";
-  const [emailInput, setEmailInput] = useState(email);
+  const [emailInput, setEmailInput] = useState("");
   const [emailError, setEmailError] = useState("");
 
   const [passwordInput, setPasswordInput] = useState("");

@@ -5,7 +5,7 @@ import Signup from "../../Container/Signup/Signup";
 import Card from "../../HOC/Card/Card";
 
 export default function Auth() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   function toggleLogin() {
     setIsLogin(!isLogin);
