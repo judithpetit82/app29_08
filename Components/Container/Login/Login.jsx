@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Platform } from "react-native";
 import Button from "../../UI/Button/Button";
-
+import P from "../../UI/P/P";
+import { AntDesign } from "@expo/vector-icons";
 export default function Login() {
   //les variables d'états:
   const [emailInput, setEmailInput] = useState("");
@@ -31,7 +32,7 @@ export default function Login() {
   }
 
   return (
-    <View accessibilityRole='form'>
+    <View accessibilityRole={Platform.OS === "web" ? "form" : null}>
       <TextInput
         placeholder='Email'
         keyboardType='email-address'
@@ -46,8 +47,14 @@ export default function Login() {
       <Text>{passwordError}</Text>
 
       <Button action={login}>
-        <Text>Se connecter</Text>
+        <AntDesign name='login' size={24} color='whitesmoke' />
+        <P white bold>
+          Se connecter
+        </P>
       </Button>
     </View>
   );
 }
+//En js:
+//null, '', 0, = false
+//undefined, 'qsdsqd', 1, 6 = true
