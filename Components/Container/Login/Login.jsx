@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import Button from "../../UI/Button/Button";
 
 export default function Login() {
   //les variables d'états:
@@ -43,9 +44,10 @@ export default function Login() {
         onChangeText={handlePassword}
       />
       <Text>{passwordError}</Text>
-      <TouchableOpacity onPress={login}>
+
+      <Button action={login}>
         <Text>Se connecter</Text>
-      </TouchableOpacity>
+      </Button>
     </View>
   );
 }
