@@ -1,11 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import Profil from "./Components/Pages/Profil/Profil";
+import Auth from "./Components/Pages/Auth/Auth";
 export default function App() {
+  const [user, setUser] = useState(null);
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      {user ? <Profil /> : <Auth />}
+      <StatusBar style='auto' />
     </View>
   );
 }
@@ -13,8 +17,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  text: {
+    fontWeight: "bold",
   },
 });
+//HOC: HIGH ORDER COMPONENT.
