@@ -18,17 +18,17 @@ export default function ProfilStack() {
       }}
     >
       <Stack.Screen
-        name='profil'
-        component={Profil}
-        options={{
-          title: "Votre page de profil",
-        }}
-      />
-      <Stack.Screen
         name='camera'
         component={Cam}
         options={{
           title: "Prenez une photo",
+        }}
+      />
+      <Stack.Screen
+        name='profil'
+        component={Profil}
+        options={{
+          title: "Votre page de profil",
         }}
       />
     </Stack.Navigator>
