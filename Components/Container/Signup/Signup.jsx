@@ -3,8 +3,11 @@ import InputWithError from "../../UI/InputWithError/InputWithError";
 import Button from "../../UI/Button/Button";
 import P from "../../UI/P/P";
 import { AntDesign } from "@expo/vector-icons";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../../Contexts/UserContext";
 export default function Signup() {
+  const { user, setUser } = useContext(UserContext);
+
   //les variables d'états:
   const [emailInput, setEmailInput] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -47,7 +50,8 @@ export default function Signup() {
       usernameInput.length <= 12 &&
       confirmPasswordInput === passwordInput
     ) {
-      console.log(emailInput + ", inscription réussie!");
+      //Todo: envoyer les infos a la backend
+      setUser({ email: emailInput, username: usernameInput });
     } else {
       setEmailError(!emailInput.includes("@") ? "Email invalide!" : "");
       setUsernameError(

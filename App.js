@@ -3,15 +3,18 @@ import { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Profil from "./Components/Pages/Profil/Profil";
 import Auth from "./Components/Pages/Auth/Auth";
+import { UserContext } from "./Contexts/UserContext";
 export default function App() {
   const [user, setUser] = useState(null);
 
   return (
-    <View style={styles.container}>
-      {user ? <Profil /> : <Auth />}
+    <UserContext.Provider value={{ user, setUser }}>
+      <View style={styles.container}>
+        {user ? <Profil /> : <Auth />}
 
-      <StatusBar style='auto' />
-    </View>
+        <StatusBar style='auto' />
+      </View>
+    </UserContext.Provider>
   );
 }
 
