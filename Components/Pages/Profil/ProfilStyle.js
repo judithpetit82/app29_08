@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  avatar: {},
+  avatar: {
+    alignSelf: "center",
+  },
   iconsContainer: {
     display: "flex",
     flexDirection: "row",
@@ -10,6 +12,9 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 5,
     backgroundColor: "rgba(10, 10, 10, 0.1)",
+    maxWidth: 300,
+    alignSelf: "center",
+    width: "100%",
   },
   infosContainer: {
     backgroundColor: "rgb(220,220,220)",
@@ -17,6 +22,9 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     borderBottomWidth: 2,
     borderColor: "royalblue",
+    maxWidth: 300,
+    alignSelf: "center",
+    width: "100%",
   },
   infoContainer: {
     borderBottomWidth: 1,
