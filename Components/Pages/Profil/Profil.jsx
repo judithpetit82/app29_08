@@ -12,7 +12,8 @@ import defaultAvatar from "../../../assets/default_avatar.png";
 import { MaterialIcons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import styles from "./ProfilStyle";
-export default function Profil() {
+
+export default function Profil({ route, navigation }) {
   const { user, setUser } = useContext(UserContext);
 
   const size = useWindowDimensions();
@@ -26,6 +27,10 @@ export default function Profil() {
     });
 
     setUser({ ...user, avatar: image });
+  }
+
+  function goCamera() {
+    navigation.push("camera");
   }
 
   return (
@@ -43,7 +48,7 @@ export default function Profil() {
             <MaterialIcons name='photo-library' size={50} color='black' />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.icon}>
+          <TouchableOpacity style={styles.icon} onPress={goCamera}>
             <MaterialIcons name='photo-camera' size={50} color='black' />
           </TouchableOpacity>
         </View>

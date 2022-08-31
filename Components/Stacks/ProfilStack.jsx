@@ -6,9 +6,31 @@ const Stack = createStackNavigator();
 
 export default function ProfilStack() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name='profil' component={Profil} />
-      <Stack.Screen name='camera' component={Cam} />
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "royalblue",
+        },
+        headerTitleStyle: {
+          color: "whitesmoke",
+        },
+        headerTintColor: "whitesmoke",
+      }}
+    >
+      <Stack.Screen
+        name='profil'
+        component={Profil}
+        options={{
+          title: "Votre page de profil",
+        }}
+      />
+      <Stack.Screen
+        name='camera'
+        component={Cam}
+        options={{
+          title: "Prenez une photo",
+        }}
+      />
     </Stack.Navigator>
   );
 }
