@@ -5,7 +5,8 @@ import Profil from "./Components/Pages/Profil/Profil";
 import Auth from "./Components/Pages/Auth/Auth";
 import { UserContext } from "./Contexts/UserContext";
 export default function App() {
-  const [user, setUser] = useState(null);
+  const fakeUser = { email: "sam.djm93@gmail.com", username: "Samy" };
+  const [user, setUser] = useState(fakeUser);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

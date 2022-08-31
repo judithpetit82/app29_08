@@ -24,7 +24,7 @@ export default function Auth() {
         {isLogin ? <Login /> : <Signup />}
 
         <TouchableOpacity>
-          <Text onClick={toggleLogin}>
+          <Text onPress={toggleLogin}>
             {isLogin
               ? "Pas encore membre, inscrivez vous !"
               : "Déjà membre ? Connectez-vous !"}
